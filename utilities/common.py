@@ -56,7 +56,7 @@ class CommonUtils:
     @staticmethod
     def wait_for_element_clickable(driver, locator_type, locator_value, timeout=10):
         """
-        Wait for element to be clickable
+                                     Wait for element to be clickable
         """
         wait = WebDriverWait(driver, timeout)
         if locator_type.lower() == "id":

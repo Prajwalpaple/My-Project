@@ -19,7 +19,7 @@ class Test_001_Login:
     logger = LogGen.loggen()
 
     def test_LoginpageTitle(self):
-        self.logger.info("***********************TEST 001 STARTED***************************")
+        self.logger.info("***********************TEST 001 STARTED*****************************")
         self.logger.info("***********************VERIFYING HOME PAGE TITLE ***************************")
         self.driver = setup()
         self.driver.get(self.baseUrl)
@@ -27,7 +27,7 @@ class Test_001_Login:
         print("Actual title is: ", act_title)
         if act_title == "Astrom HQ":
             assert True
-            self.logger.info("***********************HOMEPAGE TITLE TEST PASSED***************************")
+            self.logger.info("***********************HOMEPAGE TITLE TEST PASSED******************************")
             self.driver.close()
         else:
             self.logger.info("***********************HOMEPAGE TITLE TEST FAILED***************************")

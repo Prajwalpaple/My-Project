@@ -9,6 +9,8 @@ class DashboardPage:
     btnManageRgdUsers_ID = 'manage-registered-users'
     btnManageRoles_ID = 'manage-roles'
     btnManagebeddischargeOperation_ID = 'manage-bed-&-discharge-operations'
+    btnManageImagingModules_ID = 'manage-imaging-modules'
+    btnManageStaffandWorkforce = 'manage-staff-&-workforce'
 
     def __init__(self, driver):
         self.driver = driver
@@ -21,4 +23,12 @@ class DashboardPage:
 
     def click_manage_bed(self):
         WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable((By.ID, self.btnManagebeddischargeOperation_ID))).click()
+    
+    def click_manage_imagingmodules(self):
+        WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable((By.ID, self.btnManageImagingModules_ID))).click()
+    
+    def click_manage_staff_workforce(self):
+        WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable((By.ID, self.btnManageStaffandWorkforce))).click()
+
+    
 

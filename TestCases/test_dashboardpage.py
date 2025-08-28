@@ -29,8 +29,6 @@ class Test_002_Dashboard:
         self.dashboard.click_manage_regd_users()
         print("current url: ",self.driver.current_url)
         time.sleep(5)
-        self.driver.close()
-        self.driver.close()
         expected_url = 'https://astrom-dev.ascend.com.sa/operations/user-management'
         act_url = self.driver.current_url
         print(act_url)
@@ -51,7 +49,6 @@ class Test_002_Dashboard:
         self.dashboard = DashboardPage(self.driver)
         self.dashboard.click_manage_roles()
         time.sleep(5)
-        self.driver.close()
         expected_url = 'https://astrom-dev.ascend.com.sa/operations/roles-management'
         act_url_1 = self.driver.current_url
         print(act_url_1)
@@ -72,7 +69,6 @@ class Test_002_Dashboard:
         self.dashboard = DashboardPage(self.driver)
         self.dashboard.click_manage_bed
         time.sleep(5)
-        self.driver.close()
         expected_url = 'https://astrom-dev.ascend.com.sa/clinical-operations/occupancy-manager'
         act_url_2 = self.driver.current_url
         print(act_url_2)
@@ -81,4 +77,46 @@ class Test_002_Dashboard:
         else:
             assert False
         self.driver.close()
+
+    def test_ManageImaging(self):
+        self.driver = setup()
+        self.driver.get(self.baseUrl)
+        self.lp = LoginPage(self.driver)
+        time.sleep(5)
+        self.lp.setemail(self.username)
+        self.lp.setpassword(self.password)
+        self.lp.clicklogin()
+        self.dashboard = DashboardPage(self.driver)
+        self.dashboard.click_manage_imagingmodules
+        time.sleep(5)
+        expected_url = 'https://astrom-dev.ascend.com.sa/imaging-manager/modality-queue'
+        act_url_3 = self.driver.current_url
+        print(act_url_3)
+        if expected_url == act_url_3 :
+            assert True
+        else:
+            assert False
+        self.driver.close()
+
+    def test_ManageStaffingandWorkforce(self):
+        self.driver = setup()
+        self.driver.get(self.baseUrl)
+        self.lp = LoginPage(self.driver)
+        time.sleep(5)
+        self.lp.setemail(self.username)
+        self.lp.setpassword(self.password)
+        self.lp.clicklogin()
+        self.dashboard = DashboardPage(self.driver)
+        self.dashboard.click_manage_staff_workforce
+        time.sleep(5)
+        expected_url = 'https://astrom-dev.ascend.com.sa/staffing-and-workforce/nurse-load-status'
+        act_url_3 = self.driver.current_url
+        print(act_url_3)
+        if expected_url == act_url_3 :
+            assert True
+        else:
+            assert False
+        self.driver.close()
+
+
         
